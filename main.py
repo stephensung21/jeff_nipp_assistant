@@ -2,6 +2,10 @@ from vector import ingest_video_to_chroma
 from langchain_ollama.llms import OllamaLLM
 from app import create_fitness_graph
 
+__import__('pysqlite3')
+import sys,os
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 llm = OllamaLLM(model="llama3.2")
 video_ids = ["jLvqKgW-_G8"
              , "fGm-ef-4PVk"

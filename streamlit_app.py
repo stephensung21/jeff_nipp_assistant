@@ -1,6 +1,10 @@
 import streamlit as st
 from app import create_fitness_graph
 
+__import__('pysqlite3')
+import sys,os
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 st.set_page_config(page_title="Jeff Nippard Fitness Assistant", page_icon="💪")
 st.title("💪 Fitness Coach Assistant")
 st.write("Ask about workouts, diet, or specific YouTube videos.")

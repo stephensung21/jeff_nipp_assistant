@@ -8,6 +8,10 @@ from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnableLambda
 from typing import TypedDict, Annotated, List, Union
 
+__import__('pysqlite3')
+import sys,os
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # Embeddings and LLM
 persist_directory = "chroma_fitness_db"
 embedding_model = OllamaEmbeddings(model="mxbai-embed-large:latest")
