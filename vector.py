@@ -112,7 +112,7 @@ Transcript:\n{transcript[:2000]}
     vectordb = Chroma(
         collection_name=collection_name,
         embedding_function=embedding_model,
-        persist_directory=persist_directory
+        # persist_directory=persist_directory # comment out to not use sqlite3?
     )
     vectordb.add_documents(chunks)
     print(f"✅ Ingested: {metadata['title']}")
